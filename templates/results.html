@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Extraction Results</title>
+</head>
+<body>
+    <h1>Extraction Results</h1>
+    <table border="1">
+        <tr>
+            <th>Title</th>
+            <th>Video URL</th>
+            <th>Thumbnail URL</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/download"><button>Save</button></a>
+    <br>
+    <a href="/">Go back</a>
+</body>
+</html>
+<!-- The result.html template displays the extracted URLs in a table. The data variable is a list of lists, where each inner list contains the target URL, video URL, and thumbnail URL. The template uses a for loop to iterate over the data list and display each row in the table. At the end, there are two links: one to download the extracted data and another to go back to the main page. -->

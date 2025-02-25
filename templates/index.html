@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>URL Extractor</title>
+</head>
+<body>
+    <h1>URL Extractor</h1>
+    <form method="post" action="/">
+        <label for="num_targets">How many target URLs do you want to extract?</label>
+        <input type="number" id="num_targets" name="num_targets" min="1" required>
+        <br><br>
+        <div id="urls">
+            <!-- URL input fields will be added here dynamically -->
+        </div>
+        <br>
+        <button type="submit">Extract</button>
+    </form>
+
+    <script>
+        document.getElementById('num_targets').addEventListener('change', function () {
+            const numTargets = parseInt(this.value);
+            const urlsDiv = document.getElementById('urls');
+            urlsDiv.innerHTML = ''; // Clear existing input fields
+
+            for (let i = 0; i < numTargets; i++) {
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.name = `target_url_${i + 1}`;
+                input.placeholder = `Target URL ${i + 1}`;
+                input.required = true;
+                urlsDiv.appendChild(input);
+                urlsDiv.appendChild(document.createElement('br'));
+            }
+        });
+    </script>
+</body>
+</html>
